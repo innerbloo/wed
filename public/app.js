@@ -17,11 +17,17 @@ new Swiper(".swiper", {
   pagination: { el: ".swiper-pagination" },
 });
 
-// 카카오 지도 — 좌표는 실제 식장 위경도로 교체
+// 카카오 지도 — 주소를 좌표로 변환해서 마커 표시
+const VENUE_ADDRESS = "서울 구로구 새말로 97"; // 신도림테크노마트
 kakao.maps.load(() => {
-  const pos = new kakao.maps.LatLng(37.5665, 126.978); // ponytail: 서울시청 좌표 placeholder, 식장 좌표로 교체
-  const map = new kakao.maps.Map(document.getElementById("map"), { center: pos, level: 3 });
-  new kakao.maps.Marker({ position: pos, map });
+  const mapEl = document.getElementById("map");
+  const geocoder = new kakao.maps.services.Geocoder();
+  geocoder.addressSearch(VENUE_ADDRESS, (result, status) => {
+    if (status !== kakao.maps.services.Status.OK) return; // 주소 못 찾으면 조용히 skip
+    const pos = new kakao.maps.LatLng(result[0].y, result[0].x);
+    const map = new kakao.maps.Map(mapEl, { center: pos, level: 3 });
+    new kakao.maps.Marker({ position: pos, map });
+  });
 });
 
 // 방명록
