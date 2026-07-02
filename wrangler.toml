@@ -6,4 +6,4 @@ compatibility_date = "2024-01-01"
 binding = "DB"
 database_name = "wedding-guestbook"
 # database_id 는 `npx wrangler d1 create wedding-guestbook` 실행 후 출력값으로 채운다
-database_id = "REPLACE_ME"
+database_id = "f7329110-9fae-4ea0-9cdf-d815f8bddf9a"
