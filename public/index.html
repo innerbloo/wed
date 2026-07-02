@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>저희 결혼합니다</title>
+  <meta property="og:title" content="저희 결혼합니다" />
+  <meta property="og:description" content="소중한 분들을 초대합니다" />
+  <!-- og:image 는 배포 후 실제 사진 URL로 교체 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <!-- 음악: 자동재생은 브라우저가 막으므로 버튼 토글 -->
+  <button id="musicBtn" aria-label="음악 재생/정지">♪</button>
+  <audio id="bgm" src="./audio/bgm.mp3" loop preload="none"></audio>
+
+  <!-- 표지 -->
+  <section class="cover">
+    <h1>김신랑 &amp; 이신부</h1>
+    <p>2026. 09. 12. 토요일 오후 1시</p>
+    <p>○○웨딩홀 3층 그랜드홀</p>
+  </section>
+
+  <!-- 사진 캐러셀 -->
+  <section class="gallery">
+    <h2>우리의 순간</h2>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="./img/1.jpg" alt="" loading="lazy" /></div>
+        <div class="swiper-slide"><img src="./img/2.jpg" alt="" loading="lazy" /></div>
+        <div class="swiper-slide"><img src="./img/3.jpg" alt="" loading="lazy" /></div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+  <!-- 오시는 길 -->
+  <section class="location">
+    <h2>오시는 길</h2>
+    <div id="map"></div>
+    <p>○○웨딩홀 · 서울시 ○○구 ○○로 123</p>
+  </section>
+
+  <!-- 방명록 -->
+  <section class="guestbook">
+    <h2>축하 메시지</h2>
+    <form id="gbForm">
+      <input id="gbName" type="text" placeholder="이름" maxlength="20" required />
+      <textarea id="gbMessage" placeholder="축하 메시지를 남겨주세요" maxlength="500" required></textarea>
+      <button type="submit">남기기</button>
+    </form>
+    <ul id="gbList"></ul>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- Kakao: appkey 를 developers.kakao.com 에서 발급받은 JS 키로 교체하고, 배포 도메인 등록 필수 -->
+  <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=REPLACE_KAKAO_JS_KEY"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
